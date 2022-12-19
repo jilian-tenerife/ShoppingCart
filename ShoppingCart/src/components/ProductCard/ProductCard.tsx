@@ -8,6 +8,7 @@ export const ProductCard = ({ name, imageUrl, price }: Product) => {
   const {products, addToCart, removeItem} = useContext(ClothingShopContext);
   const [isInCart, setIsInCart] = useState(false);
   
+  
   useEffect(() => {
     const itemInCart = products.find((product: { name: string; }) => product.name === name);
 
@@ -39,4 +40,5 @@ export const ProductCard = ({ name, imageUrl, price }: Product) => {
       </TextContainer>
     </Wrapper>
   );
+  
 };
