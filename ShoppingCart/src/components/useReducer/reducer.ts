@@ -22,5 +22,18 @@ export const shopReducer = (state: ShopState, action: ShopAction) => {
       };
     default:
       return state;
+    case ShopActionType.ADDWISH:
+      return {
+          ...state,
+          items: action.payload,
+        };
+        case ShopActionType.REMOVEWISH:
+          return {
+            ...state,
+            items: action.payload,
+          };
+  
   }
+  
+  
 };

@@ -8,8 +8,8 @@ type AddButtonProps = {
   isInCart: boolean;
 };
 
-type AddButtonListProps = {
-  isInList: boolean;
+type AddButtonProps1 = {
+  isInWish: boolean;
 };
 
 export const Wrapper = styled.div<WrapperProps>`
@@ -27,7 +27,7 @@ export const Wrapper = styled.div<WrapperProps>`
 `;
 
 export const AddButton = styled.div<AddButtonProps>`
-  position: right;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,16 +52,16 @@ export const AddButton = styled.div<AddButtonProps>`
   }
 `;
 
-export const AddButtonList = styled.div<AddButtonListProps>`
-  position: left;
+export const AddButton1 = styled.div<AddButtonProps1>`
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 20px;
+  top: 60px;
   right: 20px;
   width: 20px;
   height: 20px;
-  background: ${(props) => (props.isInList ? '#E55336' : '#60c95d')};
+  background: ${(props) => (props.isInWish ? '#E55336' : '#60c95d')};
   border-radius: 50%;
   padding: 5px;
   cursor: pointer;
@@ -77,7 +77,6 @@ export const AddButtonList = styled.div<AddButtonListProps>`
     color: white;
   }
 `;
-
 
 export const TextContainer = styled.div`
   display: grid;

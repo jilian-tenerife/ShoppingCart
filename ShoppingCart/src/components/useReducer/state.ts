@@ -4,8 +4,9 @@ export type ShopState = {
     products: Product[],
     total: number,
     addToCart: any,
-    removeItem: any
+    removeItem: any,
 }
+
 
 export const initialState = {
     products: [],

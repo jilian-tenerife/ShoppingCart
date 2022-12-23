@@ -6,8 +6,9 @@ import { Products } from "../Products";
 import { Wishlist } from "../Wishlist";
 import { ClothingShopContext } from "../useContext";
 import { useReducer } from "react";
-import { add, initialState, remove, shopReducer, update } from "../useReducer";
+import { add, addWish, initialState, remove, shopReducer, update } from "../useReducer";
 import { Product } from "../../models";
+import { Item } from "../../models/Items";
 
 export const App = () => {
   const [state, dispatch] = useReducer(shopReducer, initialState);
@@ -21,6 +22,17 @@ export const App = () => {
 
     dispatch(add(updatedCart));
   };
+
+  const addList = (item: Item) =>{
+     const updatedCart = state.items.concat(item);
+     dispatch(addWish(updatedCart));
+  }
+
+  const removeList = (item: Item) => {
+    const updatedCart = state.items.filter(
+      (currentItem: Item) => currentItem.name !== item.name);
+    }
+  }
 
   const removeItem = (product: Product) => {
     const updatedCart = state.products.filter(
@@ -53,6 +65,8 @@ export const App = () => {
           <Link to="/">Home</Link>
           <Link to="/cart">Cart</Link>
           <Link to="/wishlist">Wish list</Link>
+          <Link to="/checkout">Check Out</Link>
+          <Route path="/checkout" element={<Checkout />} />
         </LinksWrapper>
         <Routes>
           <Route path="/" element={<Products />} />

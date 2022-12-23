@@ -14,6 +14,16 @@ export const Cart = () => {
           <ProductCard {...product} key={index} />
         ))}
       </ProductsWrapper>
+      <Link to="/checkout" style={{ textDecoration: 'none' }}>
+        <CheckoutButton>
+          Check Out
+        </CheckoutButton>
+      </Link>
+
+      <Routes>
+        <Route path="/checkout" element={<Checkout />} />
+      </Routes>
+      
     </>
   );
 };
